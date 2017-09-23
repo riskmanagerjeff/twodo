@@ -41,11 +41,14 @@
 						images: {
 							'images/bg01.jpg': 'center',
 							'images/bg02.jpg': 'center',
-							'images/bg03.jpg': 'center'
+							'images/bg03.jpg': 'center',
+							'images/bg04.jpg': 'center',
+							'images/bg05.jpg': 'center',
+							'images/bg06.jpg': 'center'
 						},
 
 					// Delay.
-						delay: 6000
+						delay: 7000
 
 				};
 
@@ -140,12 +143,12 @@
 			// Events.
 			// Note: If you're *not* using AJAX, get rid of this event listener.
 				$form.addEventListener('submit', function(event) {
-
+					
 					event.stopPropagation();
 					event.preventDefault();
 
 					// Hide message.
-						$message._hide();
+					//	$message._hide();
 
 					// Disable submit.
 						$submit.disabled = true;
@@ -153,16 +156,42 @@
 					// Process form.
 					// Note: Doesn't actually do anything yet (other than report back with a "thank you"),
 					// but there's enough here to piece together a working AJAX submission call that does.
+						var emailAddress = document.getElementById('email').value 
+						
 						window.setTimeout(function() {
-
-							// Reset form.
+							
+							//alert(emailAddress + ' ' + postalCode)
+							if (emailAddress!='') {
+								//alert('email is there')
+								var i = document.createElement("img");
+								i.src = "https://go2do.co/SUBSCRIBE?email="+emailAddress
+								// Reset form.
+								
+								// Enable submit.
+								
+								// Show message.
+								$message._show('success','Thank you!!!');
 								$form.reset();
-
-							// Enable submit.
 								$submit.disabled = false;
-
-							// Show message.
-								$message._show('success', 'Thank you!');
+							}
+							else {
+								//alert('something is missing')
+								if (emailAddress=='') {
+									$message._show('failure', 'A valid email address is needed');
+									//$form.reset();
+									$submit.disabled = false;
+									
+								}
+								else if (postalCode=='') {
+									$message._show('failure', 'A valid postal code is needed');
+									//$form.reset();
+									$submit.disabled = false;
+									
+								}
+							}
+						
+									
+								
 								//$message._show('failure', 'Something went wrong. Please try again.');
 
 						}, 750);
