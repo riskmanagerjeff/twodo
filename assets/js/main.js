@@ -158,13 +158,12 @@
 					// but there's enough here to piece together a working AJAX submission call that does.
 						var emailAddress = document.getElementById('email').value 
 						
-						window.setTimeout(function() {
-							
+						window.setTimeout(function() {							
 							//alert(emailAddress + ' ' + postalCode)
 							if (emailAddress!='') {
 								//alert('email is there')
 								var i = document.createElement("img");
-								i.src = "https://go2do.co/SUBSCRIBE?email="+emailAddress
+								i.src = "https://go2do-riskmanagerjeff.c9users.io/subscribe?email="+emailAddress
 								// Reset form.
 								
 								// Enable submit.
@@ -190,8 +189,6 @@
 								}
 							}
 						
-									
-								
 								//$message._show('failure', 'Something went wrong. Please try again.');
 
 						}, 750);
